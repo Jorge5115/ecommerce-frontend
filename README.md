@@ -12,3 +12,13 @@ Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
 - [x] Auth slice creado con login y register
 - [x] Cart slice creado
 - [x] App.js configurado con Router y Provider
+
+### Día 17: Páginas de Autenticación
+
+- [x] Bootstrap instalado y configurado
+- [x] LoginPage creada con formulario completo
+- [x] RegisterPage creada con formulario completo
+- [x] ProtectedRoute creado para rutas protegidas
+- [x] App.js actualizado con rutas de auth
+- [x] Navegación entre login y register funcional
+- [x] Frontend conectado con backend JWT"
