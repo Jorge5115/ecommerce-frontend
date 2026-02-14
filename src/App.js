@@ -3,6 +3,9 @@ import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import store from './store';
+import LoginPage from './pages/auth/LoginPage';
+import RegisterPage from './pages/auth/RegisterPage';
+import ProtectedRoute from './components/common/ProtectedRoute';
 
 function App() {
     return (
@@ -11,6 +14,8 @@ function App() {
                 <div className="App">
                     <Routes>
                         <Route path="/" element={<Navigate to="/products" />} />
+                        <Route path="/login" element={<LoginPage />} />
+                        <Route path="/register" element={<RegisterPage />} />
                     </Routes>
                     <ToastContainer
                         position="top-right"
