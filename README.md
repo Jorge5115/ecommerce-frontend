@@ -22,3 +22,12 @@ Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
 - [x] App.js actualizado con rutas de auth
 - [x] Navegación entre login y register funcional
 - [x] Frontend conectado con backend JWT"
+
+### Día 18: Página de Productos
+
+- [x] productApi y categoryApi creados
+- [x] Navbar con autenticación y carrito
+- [x] ProductCard con añadir al carrito
+- [x] ProductsPage con filtros y paginación
+- [x] App.js actualizado con ruta /products
+- [x] Bootstrap JS añadido para dropdown"
