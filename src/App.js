@@ -8,6 +8,9 @@ import RegisterPage from './pages/auth/RegisterPage';
 import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
+import OrdersPage from './pages/OrdersPage';
+import OrderDetailPage from './pages/OrderDetailPage';
 
 function App() {
     return (
@@ -21,6 +24,9 @@ function App() {
                         <Route path="/products" element={<ProductsPage />} />
                         <Route path="/products/:id" element={<ProductDetailPage />} />
                         <Route path="/cart" element={<CartPage />} />
+                        <Route path="/checkout" element={<CheckoutPage />} />
+                        <Route path="/orders" element={<OrdersPage />} />
+                        <Route path="/orders/:id" element={<OrderDetailPage />} />
                     </Routes>
                     <ToastContainer position="top-right" autoClose={3000} />
                 </div>
