@@ -36,3 +36,11 @@ Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
 - [x] App.js actualizado con nuevas rutas
 - [x] Selector de cantidad en detalle
 - [x] Resumen de compra en carrito
+
+### Dia 20: Checkout y Pedidos
+- [x] orderApi y couponApi creados
+- [x] CheckoutPage con formulario de envio
+- [x] CheckoutPage con validacion de cupones
+- [x] OrdersPage con lista de pedidos
+- [x] OrderDetailPage con detalle completo
+- [x] App.js actualizado con nuevas rutas"
