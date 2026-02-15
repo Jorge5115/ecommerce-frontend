@@ -11,6 +11,8 @@ import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import OrdersPage from './pages/OrdersPage';
 import OrderDetailPage from './pages/OrderDetailPage';
+import ProfilePage from './pages/user/ProfilePage';
+import WishlistPage from './pages/user/WishlistPage';
 
 function App() {
     return (
@@ -27,6 +29,8 @@ function App() {
                         <Route path="/checkout" element={<CheckoutPage />} />
                         <Route path="/orders" element={<OrdersPage />} />
                         <Route path="/orders/:id" element={<OrderDetailPage />} />
+                        <Route path="/profile" element={<ProfilePage />} />
+                        <Route path="/wishlist" element={<WishlistPage />} />
                     </Routes>
                     <ToastContainer position="top-right" autoClose={3000} />
                 </div>

@@ -6,6 +6,7 @@ import { reviewApi } from '../api/reviewApi';
 import { addToCart } from '../features/cart/cartSlice';
 import Navbar from '../components/layout/Navbar';
 import { toast } from 'react-toastify';
+import { wishlistApi } from '../api/wishlistApi';
 
 export default function ProductDetailPage() {
     const { id } = useParams();
@@ -19,6 +20,8 @@ export default function ProductDetailPage() {
     const [quantity, setQuantity] = useState(1);
     const [reviewForm, setReviewForm] = useState({ rating: 5, comment: '' });
     const [submittingReview, setSubmittingReview] = useState(false);
+
+    const [inWishlist, setInWishlist] = useState(false);
 
     useEffect(() => {
         fetchProduct();
@@ -78,6 +81,21 @@ export default function ProductDetailPage() {
             toast.error(error.response?.data?.message || 'Error al publicar la resena');
         } finally {
             setSubmittingReview(false);
+        }
+    };
+
+    const handleAddToWishlist = async () => {
+        if (!user) {
+            toast.warning('Debes iniciar sesion para usar la wishlist');
+            navigate('/login');
+            return;
+        }
+        try {
+            await wishlistApi.add(product.id);
+            setInWishlist(true);
+            toast.success('Producto añadido a la wishlist');
+        } catch (error) {
+            toast.error(error.response?.data?.message || 'Error al añadir a la wishlist');
         }
     };
 
@@ -168,6 +186,14 @@ export default function ProductDetailPage() {
                                     onClick={handleAddToCart}
                                 >
                                     Añadir al carrito
+                                </button>
+
+                                <button
+                                    className="btn btn-outline-secondary px-4"
+                                    onClick={handleAddToWishlist}
+                                    disabled={inWishlist}
+                                >
+                                    {inWishlist ? 'En wishlist' : 'Añadir a wishlist'}
                                 </button>
                             </div>
                         )}
