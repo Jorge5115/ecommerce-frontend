@@ -28,3 +28,11 @@ Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
 - [x] ProductsPage con filtros y paginación
 - [x] App.js actualizado con ruta /products
 - [x] Bootstrap JS añadido para dropdown"
+
+### Dia 19: Detalle de Producto y Carrito
+- [x] cartApi y reviewApi creados
+- [x] ProductDetailPage con resenas
+- [x] CartPage con gestion completa
+- [x] App.js actualizado con nuevas rutas
+- [x] Selector de cantidad en detalle
+- [x] Resumen de compra en carrito
