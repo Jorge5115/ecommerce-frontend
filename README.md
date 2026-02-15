@@ -43,4 +43,13 @@ Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
 - [x] CheckoutPage con validacion de cupones
 - [x] OrdersPage con lista de pedidos
 - [x] OrderDetailPage con detalle completo
-- [x] App.js actualizado con nuevas rutas"
+- [x] App.js actualizado con nuevas rutas
+
+### Dia 21: Perfil de Usuario y Wishlist
+
+- [x] userApi y wishlistApi creados
+- [x] ProfilePage con edicion de datos
+- [x] ProfilePage con cambio de contrasena
+- [x] WishlistPage con gestion completa
+- [x] Boton wishlist en ProductDetailPage
+- [x] App.js actualizado con nuevas rutas
