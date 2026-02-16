@@ -53,3 +53,13 @@ Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
 - [x] WishlistPage con gestion completa
 - [x] Boton wishlist en ProductDetailPage
 - [x] App.js actualizado con nuevas rutas
+
+### Dia 22: Panel de Administracion
+
+- [x] adminApi creado con todos los endpoints
+- [x] AdminLayout con sidebar de navegacion
+- [x] AdminDashboard con estadisticas y top productos
+- [x] AdminProducts con CRUD completo
+- [x] AdminOrders con cambio de estado
+- [x] AdminUsers con gestion de roles
+- [x] App.js actualizado con rutas admin
