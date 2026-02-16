@@ -13,6 +13,10 @@ import OrdersPage from './pages/OrdersPage';
 import OrderDetailPage from './pages/OrderDetailPage';
 import ProfilePage from './pages/user/ProfilePage';
 import WishlistPage from './pages/user/WishlistPage';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminProducts from './pages/admin/AdminProducts';
+import AdminOrders from './pages/admin/AdminOrders';
+import AdminUsers from './pages/admin/AdminUsers';
 
 function App() {
     return (
@@ -31,6 +35,10 @@ function App() {
                         <Route path="/orders/:id" element={<OrderDetailPage />} />
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/wishlist" element={<WishlistPage />} />
+                        <Route path="/admin" element={<AdminDashboard />} />
+                        <Route path="/admin/products" element={<AdminProducts />} />
+                        <Route path="/admin/orders" element={<AdminOrders />} />
+                        <Route path="/admin/users" element={<AdminUsers />} />
                     </Routes>
                     <ToastContainer position="top-right" autoClose={3000} />
                 </div>
