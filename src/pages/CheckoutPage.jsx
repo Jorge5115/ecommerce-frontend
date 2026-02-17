@@ -147,7 +147,7 @@ export default function CheckoutPage() {
                                             <option value="CREDIT_CARD">Tarjeta de credito</option>
                                             <option value="DEBIT_CARD">Tarjeta de debito</option>
                                             <option value="PAYPAL">PayPal</option>
-                                            <option value="BANK_TRANSFER">Transferencia bancaria</option>
+                                            <option value="STRIPE">Stripe</option>
                                         </select>
                                     </div>
 

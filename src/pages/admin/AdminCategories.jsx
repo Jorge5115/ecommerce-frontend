@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { adminApi } from '../../api/adminApi';
 import AdminLayout from '../../components/layout/AdminLayout';
 import { toast } from 'react-toastify';
+import ImageUpload from '../../components/ui/ImageUpload';
 
 export default function AdminCategories() {
     const [categories, setCategories] = useState([]);
@@ -129,13 +130,17 @@ export default function AdminCategories() {
                                         />
                                     </div>
                                     <div className="mb-3">
-                                        <label className="form-label">URL Imagen</label>
+                                        <label className="form-label">Imagen</label>
+                                        <ImageUpload
+                                            folder="category"
+                                            onImageUploaded={(url) => setFormData({ ...formData, imageUrl: url })}
+                                        />
                                         <input
                                             type="text"
-                                            className="form-control"
+                                            className="form-control mt-1"
                                             value={formData.imageUrl}
                                             onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-                                            placeholder="https://ejemplo.com/imagen.jpg"
+                                            placeholder="O pega una URL directamente"
                                         />
                                     </div>
                                     <div className="modal-footer px-0 pb-0">
