@@ -17,6 +17,8 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminProducts from './pages/admin/AdminProducts';
 import AdminOrders from './pages/admin/AdminOrders';
 import AdminUsers from './pages/admin/AdminUsers';
+import AdminCategories from './pages/admin/AdminCategories';
+import AdminCoupons from './pages/admin/AdminCoupons';
 
 function App() {
     return (
@@ -39,6 +41,8 @@ function App() {
                         <Route path="/admin/products" element={<AdminProducts />} />
                         <Route path="/admin/orders" element={<AdminOrders />} />
                         <Route path="/admin/users" element={<AdminUsers />} />
+                        <Route path="/admin/categories" element={<AdminCategories />} />
+                        <Route path="/admin/coupons" element={<AdminCoupons />} />
                     </Routes>
                     <ToastContainer position="top-right" autoClose={3000} />
                 </div>

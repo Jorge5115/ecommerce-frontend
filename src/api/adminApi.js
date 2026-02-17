@@ -17,4 +17,6 @@ export const adminApi = {
     createCoupon: (data) => axiosInstance.post('/coupons', data),
     toggleCoupon: (id) => axiosInstance.put(`/coupons/${id}/toggle`),
     deleteCoupon: (id) => axiosInstance.delete(`/coupons/${id}`),
+    deleteCategory: (id) => axiosInstance.delete(`/categories/${id}`),
+    updateCategory: (id, data) => axiosInstance.put(`/categories/${id}`, data),
 };
