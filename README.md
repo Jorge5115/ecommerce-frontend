@@ -46,7 +46,6 @@ Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
 - [x] App.js actualizado con nuevas rutas
 
 ### Dia 21: Perfil de Usuario y Wishlist
-
 - [x] userApi y wishlistApi creados
 - [x] ProfilePage con edicion de datos
 - [x] ProfilePage con cambio de contrasena
@@ -55,7 +54,6 @@ Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
 - [x] App.js actualizado con nuevas rutas
 
 ### Dia 22: Panel de Administracion
-
 - [x] adminApi creado con todos los endpoints
 - [x] AdminLayout con sidebar de navegacion
 - [x] AdminDashboard con estadisticas y top productos
@@ -63,3 +61,9 @@ Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
 - [x] AdminOrders con cambio de estado
 - [x] AdminUsers con gestion de roles
 - [x] App.js actualizado con rutas admin
+
+### Dia 23: Admin Categorias y Cupones
+- [x] AdminCategories con CRUD completo
+- [x] AdminCoupons con CRUD completo
+- [x] adminApi actualizado con metodos faltantes
+- [x] App.js actualizado con nuevas rutas admin
