@@ -19,6 +19,7 @@ import AdminOrders from './pages/admin/AdminOrders';
 import AdminUsers from './pages/admin/AdminUsers';
 import AdminCategories from './pages/admin/AdminCategories';
 import AdminCoupons from './pages/admin/AdminCoupons';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
     return (
@@ -43,6 +44,7 @@ function App() {
                         <Route path="/admin/users" element={<AdminUsers />} />
                         <Route path="/admin/categories" element={<AdminCategories />} />
                         <Route path="/admin/coupons" element={<AdminCoupons />} />
+                        <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                     <ToastContainer position="top-right" autoClose={3000} />
                 </div>

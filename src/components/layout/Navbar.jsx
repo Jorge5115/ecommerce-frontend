@@ -18,7 +18,7 @@ export default function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4">
             <Link className="navbar-brand fw-bold" to="/products">
-                Ecommerce
+                Stack Shop
             </Link>
 
             <button

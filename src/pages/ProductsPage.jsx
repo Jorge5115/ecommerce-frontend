@@ -3,6 +3,9 @@ import { productApi } from '../api/productApi';
 import { categoryApi } from '../api/categoryApi';
 import ProductCard from '../components/ui/ProductCard';
 import Navbar from '../components/layout/Navbar';
+import Loading from '../components/ui/Loading';
+import EmptyState from '../components/ui/EmptyState';
+import Footer from '../components/layout/Footer';
 
 export default function ProductsPage() {
     const [products, setProducts] = useState([]);
@@ -142,15 +145,15 @@ export default function ProductsPage() {
 
                 {/* Productos */}
                 {loading ? (
-                    <div className="text-center py-5">
-                        <div className="spinner-border text-primary" role="status">
-                            <span className="visually-hidden">Cargando...</span>
-                        </div>
-                    </div>
+                    <Loading text="Cargando productos..." />
                 ) : products.length === 0 ? (
-                    <div className="text-center py-5">
-                        <h5 className="text-muted">No se encontraron productos</h5>
-                    </div>
+                    <EmptyState
+                        icon="🔍"
+                        title="No se encontraron productos"
+                        message="Prueba con otros filtros de busqueda"
+                        actionLabel="Ver todos los productos"
+                        onAction={() => setFilters({ ...filters, search: '', categoryId: '', minPrice: '', maxPrice: '' })}
+                    />
                 ) : (
                     <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
                         {products.map(product => (
@@ -160,7 +163,6 @@ export default function ProductsPage() {
                         ))}
                     </div>
                 )}
-
                 {/* Paginación */}
                 {totalPages > 1 && (
                     <nav className="mt-4">
@@ -195,6 +197,7 @@ export default function ProductsPage() {
                     </nav>
                 )}
             </div>
+            <Footer /> 
         </>
     );
 }

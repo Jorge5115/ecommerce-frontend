@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { fetchCart, removeFromCart, clearCart } from '../features/cart/cartSlice';
 import Navbar from '../components/layout/Navbar';
+import Footer from '../components/layout/Footer';
+import Loading from '../components/ui/Loading';
+import EmptyState from '../components/ui/EmptyState';
 import { toast } from 'react-toastify';
 import axiosInstance from '../api/axios';
 
@@ -32,7 +35,7 @@ export default function CartPage() {
 
     const handleUpdateQuantity = async (productId, quantity) => {
         try {
-            const response = await axiosInstance.put(`/cart/update/${productId}?quantity=${quantity}`);
+            await axiosInstance.put(`/cart/update/${productId}?quantity=${quantity}`);
             dispatch(fetchCart());
         } catch (error) {
             toast.error('Error al actualizar cantidad');
@@ -43,12 +46,13 @@ export default function CartPage() {
         return (
             <>
                 <Navbar />
-                <div className="container py-5 text-center">
-                    <h4>Debes iniciar sesion para ver tu carrito</h4>
-                    <button className="btn btn-primary mt-3" onClick={() => navigate('/login')}>
-                        Iniciar Sesion
-                    </button>
-                </div>
+                <EmptyState
+                    icon="🔒"
+                    title="Debes iniciar sesion para ver tu carrito"
+                    actionLabel="Iniciar Sesion"
+                    onAction={() => navigate('/login')}
+                />
+                <Footer />
             </>
         );
     }
@@ -56,19 +60,18 @@ export default function CartPage() {
     return (
         <>
             <Navbar />
-            <div className="container py-4">
+            <div className="container py-4" style={{ flex: 1 }}>
                 <h2 className="fw-bold mb-4">Tu Carrito</h2>
 
-                {items.length === 0 ? (
-                    <div className="text-center py-5">
-                        <h5 className="text-muted">Tu carrito esta vacio</h5>
-                        <button
-                            className="btn btn-primary mt-3"
-                            onClick={() => navigate('/products')}
-                        >
-                            Ver productos
-                        </button>
-                    </div>
+                {loading ? (
+                    <Loading text="Cargando carrito..." />
+                ) : items.length === 0 ? (
+                    <EmptyState
+                        icon="🛒"
+                        title="Tu carrito esta vacio"
+                        actionLabel="Ver productos"
+                        onAction={() => navigate('/products')}
+                    />
                 ) : (
                     <div className="row g-4">
                         <div className="col-md-8">
