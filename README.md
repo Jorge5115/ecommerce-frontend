@@ -67,3 +67,21 @@ Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
 - [x] AdminCoupons con CRUD completo
 - [x] adminApi actualizado con metodos faltantes
 - [x] App.js actualizado con nuevas rutas admin
+
+### Dia 24: Subida de imagenes con Cloudinary
+
+- [x] ImageUpload component creado
+- [x] Integrado en AdminProducts
+- [x] Integrado en AdminCategories
+- [x] Preview de imagen antes de subir
+- [x] Validacion de tipo y tamaño
+
+### Dia 25: Mejoras UI y componentes reutilizables
+
+- [x] Pagina 404 creada
+- [x] Componente Loading reutilizable
+- [x] Componente EmptyState reutilizable
+- [x] Footer Stack Shop con logo y redes sociales
+- [x] Footer con tecnologias del proyecto
+- [x] Navbar y titulo actualizados a Stack Shop
+- [x] Carrito badge carga automaticamente
