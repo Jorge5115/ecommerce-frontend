@@ -117,3 +117,14 @@ Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
 - [x] ProductGalleryPicker y CategoryGalleryPicker separados
 - [x] AdminCategories con edicion completa
 - [x] Footer profesional con tecnologias Stack
+
+### Dia 27: Mejoras visuales y UX
+
+- [x] AdminLayout con nuevo diseño sidebar
+- [x] Iconos personalizados en admin panel
+- [x] Dashboard con cards visuales mejoradas
+- [x] Traduccion de estados a español
+- [x] Filtro de categorias desde landing funcional
+- [x] Transiciones optimizadas en ProductsPage
+- [x] ProductGalleryPicker y CategoryGalleryPicker separados
+- [x] Mejoras visuales generales en admin
