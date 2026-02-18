@@ -2,6 +2,28 @@
 
 Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
 
+## 🚀 Características
+
+- Autenticación JWT con roles (USER/ADMIN)
+- Carrito de compra con Redis
+- Sistema de pedidos completo
+- Reseñas y valoraciones
+- Wishlist
+- Sistema de cupones
+- Panel de administración
+- Notificaciones WebSocket en tiempo real
+- Subida de imágenes a Cloudinary
+- Documentación Swagger
+
+## 🛠️ Tecnologías
+
+**Frontend:**
+- React 18
+- Redux Toolkit
+- React Router
+- Bootstrap 5
+- Axios
+
 ### Día 16: Setup Frontend React
 - [x] Proyecto React creado con create-react-app
 - [x] Dependencias instaladas (axios, react-router-dom, redux, react-toastify)
