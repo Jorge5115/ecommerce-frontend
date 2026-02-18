@@ -2,24 +2,21 @@ import { useState, useEffect } from 'react';
 import axiosInstance from '../../api/axios';
 import { toast } from 'react-toastify';
 
-const FOLDERS = [
-    { value: 'categories', label: '🏷️ Categorias' },
-];
+
 
 export default function CategoryGalleryPicker({ onImageSelected, currentImage }) {
-    const [folder, setFolder] = useState('categories');
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(false);
     const [selected, setSelected] = useState(currentImage || null);
 
     useEffect(() => {
         fetchImages();
-    }, [folder]);
+    }, []);
 
     const fetchImages = async () => {
         setLoading(true);
         try {
-            const response = await axiosInstance.get(`/images/list/${folder}`);
+            const response = await axiosInstance.get(`/images/list/categories`);
             setImages(response.data);
         } catch (error) {
             toast.error('Error al cargar la galeria');
