@@ -80,6 +80,7 @@ export default function WishlistPage() {
                                         src={item.productImage || 'https://via.placeholder.com/300x200'}
                                         className="card-img-top"
                                         alt={item.productName}
+                                        loading="lazy"
                                         style={{ height: '200px', objectFit: 'cover', cursor: 'pointer' }}
                                         onClick={() => navigate(`/products/${item.productId}`)}
                                     />

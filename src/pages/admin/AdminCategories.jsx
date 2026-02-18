@@ -97,6 +97,7 @@ export default function AdminCategories() {
                                         src={cat.imageUrl}
                                         className="card-img-top"
                                         alt={cat.name}
+                                        loading='lazy'
                                         style={{ height: '150px', objectFit: 'cover' }}
                                     />
                                 )}

@@ -80,22 +80,9 @@ export default function AdminUsers() {
                                         </td>
                                         <td>{new Date(user.createdAt).toLocaleDateString()}</td>
                                         <td>
-                                            {user.email !== currentUser.email && (
-                                                <>
-                                                    <button
-                                                        className="btn btn-sm btn-outline-warning me-2"
-                                                        onClick={() => handleToggleRole(user.id)}
-                                                    >
-                                                        Cambiar rol
-                                                    </button>
-                                                    <button
-                                                        className="btn btn-sm btn-outline-danger"
-                                                        onClick={() => handleDelete(user.id)}
-                                                    >
-                                                        Eliminar
-                                                    </button>
-                                                </>
-                                            )}
+                                            <span className="text-muted small">
+                                                Deshabilitado por seguridad
+                                            </span>
                                         </td>
                                     </tr>
                                 ))}

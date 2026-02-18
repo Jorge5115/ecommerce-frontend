@@ -126,10 +126,11 @@ export default function ProductDetailPage() {
                 <div className="row g-4">
                     <div className="col-md-5">
                         <img
-                            src={product.imageUrl || 'https://via.placeholder.com/500x400?text=Sin+imagen'}
+                            src={product.imageUrl || 'https://via.placeholder.com/300x200?text=Sin+imagen'}
+                            className="card-img-top"
                             alt={product.name}
-                            className="img-fluid rounded shadow"
-                            style={{ width: '100%', maxHeight: '400px', objectFit: 'cover' }}
+                            loading="lazy"
+                            style={{ height: '200px', objectFit: 'cover' }}
                         />
                     </div>
 

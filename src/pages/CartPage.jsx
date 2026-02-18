@@ -48,7 +48,7 @@ export default function CartPage() {
                 <Navbar />
                 <EmptyState
                     icon="🔒"
-                    title="Debes iniciar sesion para ver tu carrito"
+                    title="Debes iniciar sesión para ver tu carrito"
                     actionLabel="Iniciar Sesion"
                     onAction={() => navigate('/login')}
                 />
@@ -68,7 +68,7 @@ export default function CartPage() {
                 ) : items.length === 0 ? (
                     <EmptyState
                         icon="🛒"
-                        title="Tu carrito esta vacio"
+                        title="Tu carrito está vacio"
                         actionLabel="Ver productos"
                         onAction={() => navigate('/products')}
                     />

@@ -33,6 +33,7 @@ export default function ProductCard({ product }) {
                 src={product.imageUrl || 'https://via.placeholder.com/300x200?text=Sin+imagen'}
                 className="card-img-top"
                 alt={product.name}
+                loading="lazy"
                 style={{ height: '200px', objectFit: 'cover' }}
             />
             <div className="card-body d-flex flex-column" style={{ flex: 1 }}>
