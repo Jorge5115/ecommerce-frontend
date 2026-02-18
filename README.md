@@ -85,3 +85,13 @@ Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
 - [x] Footer con tecnologias del proyecto
 - [x] Navbar y titulo actualizados a Stack Shop
 - [x] Carrito badge carga automaticamente
+
+### Dia 26: Landing Page y mejoras visuales
+
+- [x] HomePage completa con HeroSection, Stats, Categories y Featured
+- [x] Navbar rediseñada: links centrados, hover verde, flecha activa
+- [x] Iconos personalizados PNG en navbar y landing
+- [x] ProductCard y Wishlist con altura fija uniforme
+- [x] ProductGalleryPicker y CategoryGalleryPicker separados
+- [x] AdminCategories con edicion completa
+- [x] Footer profesional con tecnologias Stack
