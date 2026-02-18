@@ -72,32 +72,30 @@ export default function WishlistPage() {
                         </button>
                     </div>
                 ) : (
-                    <div className="row row-cols-1 row-cols-md-3 g-4">
+                    <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
                         {wishlist.map(item => (
                             <div key={item.id} className="col">
-                                <div className="card h-100 shadow-sm">
+                                <div className="card h-100 shadow-sm" style={{ display: 'flex', flexDirection: 'column' }}>
                                     <img
                                         src={item.productImage || 'https://via.placeholder.com/300x200'}
                                         className="card-img-top"
                                         alt={item.productName}
-                                        style={{ height: '180px', objectFit: 'cover', cursor: 'pointer' }}
+                                        style={{ height: '200px', objectFit: 'cover', cursor: 'pointer' }}
                                         onClick={() => navigate(`/products/${item.productId}`)}
                                     />
-                                    <div className="card-body">
+                                    <div className="card-body d-flex flex-column" style={{ flex: 1 }}>
                                         <h6
                                             className="card-title fw-bold"
-                                            style={{ cursor: 'pointer' }}
+                                            style={{ cursor: 'pointer', minHeight: '48px' }}
                                             onClick={() => navigate(`/products/${item.productId}`)}
                                         >
                                             {item.productName}
                                         </h6>
-                                        <p className="text-primary fw-bold">{item.productPrice}€</p>
-                                        <span className={`badge ${item.productActive ? 'bg-success' : 'bg-danger'} mb-2`}>
+                                        <p className="text-primary fw-bold fs-5">{item.productPrice}€</p>
+                                        <span className={`badge ${item.productActive ? 'bg-success' : 'bg-danger'} mb-2 align-self-start`}>
                                             {item.productActive ? 'Disponible' : 'No disponible'}
                                         </span>
-                                    </div>
-                                    <div className="card-footer bg-transparent">
-                                        <div className="d-flex gap-2">
+                                        <div className="mt-auto d-flex gap-2">
                                             <button
                                                 className="btn btn-primary btn-sm flex-grow-1"
                                                 onClick={() => handleMoveToCart(item.productId)}

@@ -20,6 +20,7 @@ import AdminUsers from './pages/admin/AdminUsers';
 import AdminCategories from './pages/admin/AdminCategories';
 import AdminCoupons from './pages/admin/AdminCoupons';
 import NotFoundPage from './pages/NotFoundPage';
+import HomePage from './pages/HomePage';
 
 function App() {
     return (
@@ -27,7 +28,7 @@ function App() {
             <Router>
                 <div className="App">
                     <Routes>
-                        <Route path="/" element={<Navigate to="/products" />} />
+                        <Route path="/" element={<HomePage />} />
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/register" element={<RegisterPage />} />
                         <Route path="/products" element={<ProductsPage />} />

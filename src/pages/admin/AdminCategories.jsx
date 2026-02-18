@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { adminApi } from '../../api/adminApi';
 import AdminLayout from '../../components/layout/AdminLayout';
+import CategoryGalleryPicker from '../../components/ui/CategoryGalleryPicker';
 import { toast } from 'react-toastify';
-import ImageUpload from '../../components/ui/ImageUpload';
 
 export default function AdminCategories() {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [showModal, setShowModal] = useState(false);
+    const [editing, setEditing] = useState(null);
     const [formData, setFormData] = useState({
         name: '',
         description: '',
@@ -29,16 +30,36 @@ export default function AdminCategories() {
         }
     };
 
+    const handleNew = () => {
+        setEditing(null);
+        setFormData({ name: '', description: '', imageUrl: '' });
+        setShowModal(true);
+    };
+
+    const handleEdit = (category) => {
+        setEditing(category);
+        setFormData({
+            name: category.name,
+            description: category.description || '',
+            imageUrl: category.imageUrl || '',
+        });
+        setShowModal(true);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await adminApi.createCategory(formData);
-            toast.success('Categoria creada correctamente');
+            if (editing) {
+                await adminApi.updateCategory(editing.id, formData);
+                toast.success('Categoria actualizada');
+            } else {
+                await adminApi.createCategory(formData);
+                toast.success('Categoria creada');
+            }
             setShowModal(false);
-            setFormData({ name: '', description: '', imageUrl: '' });
             fetchCategories();
         } catch (error) {
-            toast.error(error.response?.data?.message || 'Error al crear la categoria');
+            toast.error(error.response?.data?.message || 'Error al guardar la categoria');
         }
     };
 
@@ -57,7 +78,7 @@ export default function AdminCategories() {
         <AdminLayout>
             <div className="d-flex justify-content-between align-items-center mb-4">
                 <h3 className="fw-bold mb-0">Categorias</h3>
-                <button className="btn btn-primary" onClick={() => setShowModal(true)}>
+                <button className="btn btn-primary" onClick={handleNew}>
                     + Nueva Categoria
                 </button>
             </div>
@@ -83,12 +104,18 @@ export default function AdminCategories() {
                                     <h5 className="fw-bold">{cat.name}</h5>
                                     <p className="text-muted small">{cat.description}</p>
                                     <span className="badge bg-secondary">
-                                        {cat.productCount} productos
+                                        {cat.productCount} {cat.productCount === 1 ? 'producto' : 'productos'}
                                     </span>
                                 </div>
-                                <div className="card-footer bg-transparent">
+                                <div className="card-footer bg-transparent d-flex gap-2">
                                     <button
-                                        className="btn btn-sm btn-outline-danger w-100"
+                                        className="btn btn-sm btn-outline-primary flex-grow-1"
+                                        onClick={() => handleEdit(cat)}
+                                    >
+                                        Editar
+                                    </button>
+                                    <button
+                                        className="btn btn-sm btn-outline-danger"
                                         onClick={() => handleDelete(cat.id)}
                                     >
                                         Eliminar
@@ -105,7 +132,9 @@ export default function AdminCategories() {
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title fw-bold">Nueva Categoria</h5>
+                                <h5 className="modal-title fw-bold">
+                                    {editing ? 'Editar Categoria' : 'Nueva Categoria'}
+                                </h5>
                                 <button className="btn-close" onClick={() => setShowModal(false)}></button>
                             </div>
                             <div className="modal-body">
@@ -130,18 +159,11 @@ export default function AdminCategories() {
                                         />
                                     </div>
                                     <div className="mb-3">
-                                        <label className="form-label">Imagen</label>
-                                        <ImageUpload
-                                            folder="category"
-                                            onImageUploaded={(url) => setFormData({ ...formData, imageUrl: url })}
+                                        <CategoryGalleryPicker
+                                            currentImage={formData.imageUrl}
+                                            onImageSelected={(url) => setFormData({ ...formData, imageUrl: url })}
                                         />
-                                        <input
-                                            type="text"
-                                            className="form-control mt-1"
-                                            value={formData.imageUrl}
-                                            onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-                                            placeholder="O pega una URL directamente"
-                                        />
+                
                                     </div>
                                     <div className="modal-footer px-0 pb-0">
                                         <button
@@ -152,7 +174,7 @@ export default function AdminCategories() {
                                             Cancelar
                                         </button>
                                         <button type="submit" className="btn btn-primary">
-                                            Crear categoria
+                                            {editing ? 'Guardar cambios' : 'Crear categoria'}
                                         </button>
                                     </div>
                                 </form>

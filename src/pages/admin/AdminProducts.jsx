@@ -3,7 +3,7 @@ import { adminApi } from '../../api/adminApi';
 import { productApi } from '../../api/productApi';
 import AdminLayout from '../../components/layout/AdminLayout';
 import { toast } from 'react-toastify';
-import ImageUpload from '../../components/ui/ImageUpload';
+import ProductGalleryPicker from '../../components/ui/ProductGalleryPicker';
 
 export default function AdminProducts() {
     const [products, setProducts] = useState([]);
@@ -230,28 +230,9 @@ export default function AdminProducts() {
                                         </div>
                                     </div>
                                     <div className="mb-3">
-                                        <label className="form-label">Imagen del producto</label>
-                                        {formData.imageUrl && (
-                                            <img
-                                                src={formData.imageUrl}
-                                                alt="Preview"
-                                                className="img-thumbnail d-block mb-2"
-                                                style={{ maxHeight: '150px' }}
-                                            />
-                                        )}
-                                        <ImageUpload
-                                            folder="product"
-                                            onImageUploaded={(url) => setFormData({ ...formData, imageUrl: url })}
-                                        />
-                                        <small className="text-muted mt-1 d-block">
-                                            O introduce una URL directamente:
-                                        </small>
-                                        <input
-                                            type="text"
-                                            className="form-control mt-1"
-                                            value={formData.imageUrl}
-                                            onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-                                            placeholder="https://ejemplo.com/imagen.jpg"
+                                        <ProductGalleryPicker
+                                            currentImage={formData.imageUrl}
+                                            onImageSelected={(url) => setFormData({ ...formData, imageUrl: url })}
                                         />
                                     </div>
                                     <div className="mb-3">
