@@ -21,7 +21,7 @@ export default function Navbar() {
     const navItems = [
         { path: '/products', label: 'Productos', show: true },
         { path: '/orders', label: 'Mis Pedidos', show: !!user },
-        { path: '/wishlist', label: 'Wishlist', show: !!user },
+        { path: '/wishlist', label: 'Favoritos', show: !!user },
         { path: '/admin', label: 'Backend', show: user?.role === 'ADMIN' },
     ];
 

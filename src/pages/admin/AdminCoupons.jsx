@@ -88,7 +88,7 @@ export default function AdminCoupons() {
             <div className="d-flex justify-content-between align-items-center mb-4">
                 <h3 className="fw-bold mb-0">Cupones</h3>
                 <button className="btn btn-primary" onClick={() => setShowModal(true)}>
-                    + Nuevo Cupon
+                    + Nuevo Cupón
                 </button>
             </div>
 
@@ -158,7 +158,7 @@ export default function AdminCoupons() {
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title fw-bold">Nuevo Cupon</h5>
+                                <h5 className="modal-title fw-bold">Nuevo Cupón</h5>
                                 <button className="btn-close" onClick={() => setShowModal(false)}></button>
                             </div>
                             <div className="modal-body">
@@ -256,7 +256,7 @@ export default function AdminCoupons() {
                                             Cancelar
                                         </button>
                                         <button type="submit" className="btn btn-primary">
-                                            Crear cupon
+                                            Crear Cupón
                                         </button>
                                     </div>
                                 </form>

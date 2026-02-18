@@ -6,6 +6,7 @@ import Navbar from '../components/layout/Navbar';
 import Loading from '../components/ui/Loading';
 import EmptyState from '../components/ui/EmptyState';
 import Footer from '../components/layout/Footer';
+import { useLocation } from 'react-router-dom';
 
 export default function ProductsPage() {
     const [products, setProducts] = useState([]);
@@ -31,6 +32,21 @@ export default function ProductsPage() {
         fetchProducts();
     }, [filters]);
 
+    const location = useLocation();
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const categoryParam = params.get('category');
+        if (categoryParam) {
+            setFilters(prev => {
+                const newFilters = { ...prev, categoryId: categoryParam, page: 0 };
+                // Forzar fetch inmediatamente con los nuevos filtros
+                fetchProductsWithFilters(newFilters);
+                return newFilters;
+            });
+        }
+    }, [location.search]);
+
     const fetchCategories = async () => {
         try {
             const response = await categoryApi.getAll();
@@ -42,16 +58,28 @@ export default function ProductsPage() {
 
     const fetchProducts = async () => {
         setLoading(true);
+        await fetchProductsWithFilters(filters);
+    };
+
+    const handleFilterChange = (e) => {
+        setFilters({ ...filters, [e.target.name]: e.target.value, page: 0 });
+    };
+
+    const handlePageChange = (newPage) => {
+        setFilters({ ...filters, page: newPage });
+    };
+
+    const fetchProductsWithFilters = async (filterParams) => {
         try {
             const params = {};
-            if (filters.search) params.search = filters.search;
-            if (filters.categoryId) params.categoryId = filters.categoryId;
-            if (filters.minPrice) params.minPrice = filters.minPrice;
-            if (filters.maxPrice) params.maxPrice = filters.maxPrice;
-            params.page = filters.page;
-            params.size = filters.size;
-            params.sortBy = filters.sortBy;
-            params.sortDir = filters.sortDir;
+            if (filterParams.search) params.search = filterParams.search;
+            if (filterParams.categoryId) params.categoryId = filterParams.categoryId;
+            if (filterParams.minPrice) params.minPrice = filterParams.minPrice;
+            if (filterParams.maxPrice) params.maxPrice = filterParams.maxPrice;
+            params.page = filterParams.page;
+            params.size = filterParams.size;
+            params.sortBy = filterParams.sortBy;
+            params.sortDir = filterParams.sortDir;
 
             const response = await productApi.search(params);
             setProducts(response.data.content);
@@ -63,19 +91,11 @@ export default function ProductsPage() {
         }
     };
 
-    const handleFilterChange = (e) => {
-        setFilters({ ...filters, [e.target.name]: e.target.value, page: 0 });
-    };
-
-    const handlePageChange = (newPage) => {
-        setFilters({ ...filters, page: newPage });
-    };
-
     return (
         <>
             <Navbar />
             <div className="container py-4">
-                <h2 className="fw-bold mb-4">🛍️ Productos</h2>
+                <h2 className="fw-bold mb-4">Productos</h2>
 
                 {/* Filtros */}
                 <div className="card shadow-sm mb-4">
@@ -155,7 +175,7 @@ export default function ProductsPage() {
                         onAction={() => setFilters({ ...filters, search: '', categoryId: '', minPrice: '', maxPrice: '' })}
                     />
                 ) : (
-                    <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+                    <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4" style={{ opacity: loading ? 0.5 : 1, transition: 'opacity 0.2s' }}>
                         {products.map(product => (
                             <div key={product.id} className="col">
                                 <ProductCard product={product} />

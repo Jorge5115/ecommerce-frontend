@@ -3,11 +3,11 @@ import axiosInstance from '../../api/axios';
 import { toast } from 'react-toastify';
 
 const FOLDERS = [
-       { value: 'categories', label: '🏷️ Categorias' },
+    { value: 'categories', label: '🏷️ Categorias' },
 ];
 
-export default function GalleryPicker({ onImageSelected, currentImage }) {
-    const [folder, setFolder] = useState('tecnologia');
+export default function CategoryGalleryPicker({ onImageSelected, currentImage }) {
+    const [folder, setFolder] = useState('categories');
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(false);
     const [selected, setSelected] = useState(currentImage || null);
@@ -35,20 +35,7 @@ export default function GalleryPicker({ onImageSelected, currentImage }) {
 
     return (
         <div>
-            <label className="form-label fw-bold">Selecciona una imagen</label>
-
-            <div className="d-flex gap-2 flex-wrap mb-3">
-                {FOLDERS.map(f => (
-                    <button
-                        key={f.value}
-                        type="button"
-                        className={`btn btn-sm ${folder === f.value ? 'btn-dark' : 'btn-outline-secondary'}`}
-                        onClick={() => setFolder(f.value)}
-                    >
-                        {f.label}
-                    </button>
-                ))}
-            </div>
+            <label className="form-label fw-bold">Selecciona una imagen para la categoria</label>
 
             {loading ? (
                 <div className="text-center py-3">
@@ -56,7 +43,7 @@ export default function GalleryPicker({ onImageSelected, currentImage }) {
                 </div>
             ) : images.length === 0 ? (
                 <div className="alert alert-info small">
-                    No hay imagenes en esta carpeta todavia. Subelas desde Cloudinary.
+                    No hay imagenes en la carpeta categories. Subelas desde Cloudinary.
                 </div>
             ) : (
                 <div className="row g-2" style={{ maxHeight: '300px', overflowY: 'auto' }}>

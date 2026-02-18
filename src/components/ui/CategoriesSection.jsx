@@ -21,7 +21,7 @@ export default function CategoriesSection() {
                         <div
                             className="card shadow-sm text-center h-100"
                             style={{ cursor: 'pointer' }}
-                            onClick={() => navigate(`/products?categoryId=${cat.id}`)}
+                            onClick={() => navigate(`/products?category=${cat.id}`)}
                         >
                             {cat.imageUrl ? (
                                 <img

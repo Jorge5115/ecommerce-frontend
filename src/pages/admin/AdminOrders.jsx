@@ -3,6 +3,15 @@ import { adminApi } from '../../api/adminApi';
 import AdminLayout from '../../components/layout/AdminLayout';
 import { toast } from 'react-toastify';
 
+const STATUS_LABELS = {
+    PENDING: 'Pendiente',
+    CONFIRMED: 'Confirmado',
+    PROCESSING: 'Procesando',
+    SHIPPED: 'Enviado',
+    DELIVERED: 'Entregado',
+    CANCELLED: 'Cancelado',
+};
+
 const STATUS_COLORS = {
     PENDING: 'warning',
     CONFIRMED: 'info',
@@ -78,18 +87,18 @@ export default function AdminOrders() {
                                         <td>{order.total}€</td>
                                         <td>
                                             <span className={`badge bg-${STATUS_COLORS[order.status]}`}>
-                                                {order.status}
+                                                {STATUS_LABELS[order.status]}
                                             </span>
                                         </td>
                                         <td>
                                             <select
                                                 className="form-select form-select-sm"
-                                                style={{ width: '140px' }}
+                                                style={{ width: '160px' }}
                                                 value={order.status}
                                                 onChange={(e) => handleStatusChange(order.id, e.target.value)}
                                             >
                                                 {STATUS_OPTIONS.map(s => (
-                                                    <option key={s} value={s}>{s}</option>
+                                                    <option key={s} value={s}>{STATUS_LABELS[s]}</option>
                                                 ))}
                                             </select>
                                         </td>

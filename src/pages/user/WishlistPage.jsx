@@ -55,7 +55,7 @@ export default function WishlistPage() {
         <>
             <Navbar />
             <div className="container py-4">
-                <h2 className="fw-bold mb-4">Mi Wishlist</h2>
+                <h2 className="fw-bold mb-4">Favoritos</h2>
 
                 {loading ? (
                     <div className="text-center py-5">

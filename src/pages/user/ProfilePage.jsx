@@ -115,7 +115,7 @@ export default function ProfilePage() {
                                         className="btn btn-outline-secondary btn-sm"
                                         onClick={() => navigate('/wishlist')}
                                     >
-                                        Mi Wishlist
+                                        Favoritos
                                     </button>
                                 </div>
                             </div>
@@ -139,7 +139,7 @@ export default function ProfilePage() {
                                             />
                                         </div>
                                         <div className="col">
-                                            <label className="form-label">Apellido</label>
+                                            <label className="form-label">Apellidos</label>
                                             <input
                                                 type="text"
                                                 name="lastName"
@@ -151,7 +151,7 @@ export default function ProfilePage() {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label className="form-label">Telefono</label>
+                                        <label className="form-label">Teléfono</label>
                                         <input
                                             type="text"
                                             name="phone"
@@ -163,10 +163,10 @@ export default function ProfilePage() {
                                     </div>
 
                                     <hr />
-                                    <h6 className="fw-bold mb-3">Cambiar contrasena (opcional)</h6>
+                                    <h6 className="fw-bold mb-3">Cambiar contraseña (opcional)</h6>
 
                                     <div className="mb-3">
-                                        <label className="form-label">Contrasena actual</label>
+                                        <label className="form-label">Contraseña actual</label>
                                         <input
                                             type="password"
                                             name="currentPassword"
@@ -178,7 +178,7 @@ export default function ProfilePage() {
                                     </div>
 
                                     <div className="mb-4">
-                                        <label className="form-label">Nueva contrasena</label>
+                                        <label className="form-label">Nueva contraseña</label>
                                         <input
                                             type="password"
                                             name="newPassword"

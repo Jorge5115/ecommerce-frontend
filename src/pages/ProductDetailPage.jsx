@@ -59,26 +59,26 @@ export default function ProductDetailPage() {
         if (addToCart.fulfilled.match(result)) {
             toast.success('Producto añadido al carrito');
         } else {
-            toast.error(result.payload || 'Error al añadir al carrito');
+            toast.error(result.payload || 'Error al añadir al Carrito');
         }
     };
 
     const handleSubmitReview = async (e) => {
         e.preventDefault();
         if (!user) {
-            toast.warning('Debes iniciar sesion para dejar una resena');
+            toast.warning('Debes iniciar sesion para dejar una reseña');
             navigate('/login');
             return;
         }
         setSubmittingReview(true);
         try {
             await reviewApi.create({ ...reviewForm, productId: product.id });
-            toast.success('Resena publicada correctamente');
+            toast.success('Reseña publicada correctamente');
             setReviewForm({ rating: 5, comment: '' });
             fetchReviews();
             fetchProduct();
         } catch (error) {
-            toast.error(error.response?.data?.message || 'Error al publicar la resena');
+            toast.error(error.response?.data?.message || 'Error al publicar la reseña');
         } finally {
             setSubmittingReview(false);
         }
@@ -86,16 +86,16 @@ export default function ProductDetailPage() {
 
     const handleAddToWishlist = async () => {
         if (!user) {
-            toast.warning('Debes iniciar sesion para usar la wishlist');
+            toast.warning('Debes iniciar sesion para ver tus favoritos');
             navigate('/login');
             return;
         }
         try {
             await wishlistApi.add(product.id);
             setInWishlist(true);
-            toast.success('Producto añadido a la wishlist');
+            toast.success('Producto añadido a favoritos');
         } catch (error) {
-            toast.error(error.response?.data?.message || 'Error al añadir a la wishlist');
+            toast.error(error.response?.data?.message || 'Error al añadir a Favoritos');
         }
     };
 
@@ -120,7 +120,7 @@ export default function ProductDetailPage() {
                     className="btn btn-outline-secondary mb-4"
                     onClick={() => navigate('/products')}
                 >
-                    Volver a productos
+                    Volver a Productos
                 </button>
 
                 <div className="row g-4">
@@ -144,7 +144,7 @@ export default function ProductDetailPage() {
                                     {'☆'.repeat(5 - Math.round(product.averageRating))}
                                 </span>
                                 <span className="text-muted ms-2">
-                                    {product.averageRating.toFixed(1)} ({product.reviewCount} resenas)
+                                    {product.averageRating.toFixed(1)} ({product.reviewCount} reseñas)
                                 </span>
                             </div>
                         )}
@@ -185,7 +185,7 @@ export default function ProductDetailPage() {
                                     className="btn btn-primary px-4"
                                     onClick={handleAddToCart}
                                 >
-                                    Añadir al carrito
+                                    Añadir al Carrito
                                 </button>
 
                                 <button
@@ -193,7 +193,7 @@ export default function ProductDetailPage() {
                                     onClick={handleAddToWishlist}
                                     disabled={inWishlist}
                                 >
-                                    {inWishlist ? 'En wishlist' : 'Añadir a wishlist'}
+                                    {inWishlist ? 'En Favoritos' : 'Añadir a Favoritos'}
                                 </button>
                             </div>
                         )}
@@ -202,15 +202,15 @@ export default function ProductDetailPage() {
 
                 {/* Reseñas */}
                 <div className="mt-5">
-                    <h4 className="fw-bold mb-4">Resenas de clientes</h4>
+                    <h4 className="fw-bold mb-4">Reseñas de clientes</h4>
 
                     {user && (
                         <div className="card shadow-sm mb-4">
                             <div className="card-body">
-                                <h6 className="fw-bold mb-3">Deja tu resena</h6>
+                                <h6 className="fw-bold mb-3">Deja tu reseña</h6>
                                 <form onSubmit={handleSubmitReview}>
                                     <div className="mb-3">
-                                        <label className="form-label">Valoracion</label>
+                                        <label className="form-label">Valoración</label>
                                         <select
                                             className="form-select"
                                             value={reviewForm.rating}
@@ -238,7 +238,7 @@ export default function ProductDetailPage() {
                                         className="btn btn-primary"
                                         disabled={submittingReview}
                                     >
-                                        {submittingReview ? 'Publicando...' : 'Publicar resena'}
+                                        {submittingReview ? 'Publicando...' : 'Publicar reseña'}
                                     </button>
                                 </form>
                             </div>
@@ -246,7 +246,7 @@ export default function ProductDetailPage() {
                     )}
 
                     {reviews.length === 0 ? (
-                        <p className="text-muted">No hay resenas todavia. Se el primero en opinar.</p>
+                        <p className="text-muted">No hay reseñas todavia. Se el primero en opinar.</p>
                     ) : (
                         reviews.map(review => (
                             <div key={review.id} className="card shadow-sm mb-3">

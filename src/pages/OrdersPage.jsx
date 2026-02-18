@@ -107,7 +107,7 @@ export default function OrdersPage() {
                                             className="btn btn-outline-primary btn-sm me-2"
                                             onClick={() => navigate(`/orders/${order.id}`)}
                                         >
-                                            Ver detalle
+                                            Ver detalles
                                         </button>
                                         {order.status === 'PENDING' && (
                                             <button
