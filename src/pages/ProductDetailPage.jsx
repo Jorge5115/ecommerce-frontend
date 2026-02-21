@@ -126,11 +126,14 @@ export default function ProductDetailPage() {
                 <div className="row g-4">
                     <div className="col-md-5">
                         <img
-                            src={product.imageUrl || 'https://via.placeholder.com/300x200?text=Sin+imagen'}
-                            className="card-img-top"
+                            src={product.imageUrl || 'https://via.placeholder.com/400x400?text=Sin+imagen'}
+                            className="img-fluid rounded"
                             alt={product.name}
                             loading="lazy"
-                            style={{ height: '200px', objectFit: 'cover' }}
+                            style={{ width: '100%', height: 'auto', objectFit: 'contain', maxHeight: '500px' }}
+                            onError={(e) => {
+                                e.target.src = 'https://via.placeholder.com/400x400?text=Imagen+no+disponible';
+                            }}
                         />
                     </div>
 
@@ -203,7 +206,7 @@ export default function ProductDetailPage() {
 
                 {/* Reseñas */}
                 <div className="mt-5">
-                    <h4 className="fw-bold mb-4">Reseñas de clientes</h4>
+                    <h4 className="fw-bold mb-4">Reseñas de los clientes</h4>
 
                     {user && (
                         <div className="card shadow-sm mb-4">
