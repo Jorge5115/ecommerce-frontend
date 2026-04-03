@@ -1,130 +1,101 @@
-# 🛒 E-commerce Full-Stack (FRONT)
+# Stack Shop — Frontend
 
-Plataforma de e-commerce completa con Spring Boot + React + MySQL + Redis
+Interfaz de usuario para una plataforma e-commerce completa construida con React 18 y Redux Toolkit. Conectada a una API REST con autenticación JWT, notificaciones en tiempo real por WebSocket y subida de imágenes a Cloudinary.
 
-## 🚀 Características
+🔗 **Backend:** [github.com/Jorge5115/ecommerce-backend](https://github.com/Jorge5115/ecommerce-backend)
 
-- Autenticación JWT con roles (USER/ADMIN)
-- Carrito de compra con Redis
-- Sistema de pedidos completo
-- Reseñas y valoraciones
-- Wishlist
-- Sistema de cupones
-- Panel de administración
-- Notificaciones WebSocket en tiempo real
-- Subida de imágenes a Cloudinary
-- Documentación Swagger
+---
 
-## 🛠️ Tecnologías
+## Funcionalidades
 
-**Frontend:**
-- React 18
-- Redux Toolkit
-- React Router
-- Bootstrap 5
-- Axios
+- **Autenticación** — login, registro y rutas protegidas por rol (USER / ADMIN)
+- **Catálogo de productos** — filtros por categoría, búsqueda y paginación
+- **Detalle de producto** — galería de imágenes, reseñas y añadir al carrito
+- **Carrito de compra** — gestión completa con selector de cantidad y resumen de compra
+- **Checkout** — formulario de envío y validación de cupones de descuento
+- **Pedidos** — historial y detalle de cada pedido con tracking de estado
+- **Perfil de usuario** — edición de datos y cambio de contraseña
+- **Wishlist** — lista de favoritos con opción de mover al carrito
+- **Panel de administración** — gestión de productos, categorías, pedidos, usuarios y cupones con dashboard de analytics
+- **Notificaciones en tiempo real** — integración con WebSocket
+- **Subida de imágenes** — preview antes de subir a Cloudinary
 
-### Día 16: Setup Frontend React
-- [x] Proyecto React creado con create-react-app
-- [x] Dependencias instaladas (axios, react-router-dom, redux, react-toastify)
-- [x] Estructura de carpetas creada
-- [x] Axios configurado con interceptors JWT
-- [x] Redux store configurado
-- [x] Auth slice creado con login y register
-- [x] Cart slice creado
-- [x] App.js configurado con Router y Provider
+---
 
-### Día 17: Páginas de Autenticación
-- [x] Bootstrap instalado y configurado
-- [x] LoginPage creada con formulario completo
-- [x] RegisterPage creada con formulario completo
-- [x] ProtectedRoute creado para rutas protegidas
-- [x] App.js actualizado con rutas de auth
-- [x] Navegación entre login y register funcional
-- [x] Frontend conectado con backend JWT"
-      
-### Día 18: Página de Productos
-- [x] productApi y categoryApi creados
-- [x] Navbar con autenticación y carrito
-- [x] ProductCard con añadir al carrito
-- [x] ProductsPage con filtros y paginación
-- [x] App.js actualizado con ruta /products
-- [x] Bootstrap JS añadido para dropdown"
+## Stack tecnológico
 
-### Dia 19: Detalle de Producto y Carrito
-- [x] cartApi y reviewApi creados
-- [x] ProductDetailPage con resenas
-- [x] CartPage con gestion completa
-- [x] App.js actualizado con nuevas rutas
-- [x] Selector de cantidad en detalle
-- [x] Resumen de compra en carrito
+| Capa | Tecnología |
+|------|-----------|
+| Framework | React 18 |
+| Estado global | Redux Toolkit |
+| Routing | React Router v6 |
+| HTTP | Axios (con interceptors JWT) |
+| UI | Bootstrap 5 |
+| Estilos | Tailwind CSS |
+| Notificaciones | React Toastify |
 
-### Dia 20: Checkout y Pedidos
-- [x] orderApi y couponApi creados
-- [x] CheckoutPage con formulario de envio
-- [x] CheckoutPage con validacion de cupones
-- [x] OrdersPage con lista de pedidos
-- [x] OrderDetailPage con detalle completo
-- [x] App.js actualizado con nuevas rutas
+---
 
-### Dia 21: Perfil de Usuario y Wishlist
-- [x] userApi y wishlistApi creados
-- [x] ProfilePage con edicion de datos
-- [x] ProfilePage con cambio de contrasena
-- [x] WishlistPage con gestion completa
-- [x] Boton wishlist en ProductDetailPage
-- [x] App.js actualizado con nuevas rutas
+## Requisitos previos
 
-### Dia 22: Panel de Administracion
-- [x] adminApi creado con todos los endpoints
-- [x] AdminLayout con sidebar de navegacion
-- [x] AdminDashboard con estadisticas y top productos
-- [x] AdminProducts con CRUD completo
-- [x] AdminOrders con cambio de estado
-- [x] AdminUsers con gestion de roles
-- [x] App.js actualizado con rutas admin
+- Node.js 18+
+- El [backend](https://github.com/Jorge5115/ecommerce-backend) corriendo en `http://localhost:8080`
 
-### Dia 23: Admin Categorias y Cupones
-- [x] AdminCategories con CRUD completo
-- [x] AdminCoupons con CRUD completo
-- [x] adminApi actualizado con metodos faltantes
-- [x] App.js actualizado con nuevas rutas admin
+---
 
-### Dia 24: Subida de imagenes con Cloudinary
+## Instalación y arranque
 
-- [x] ImageUpload component creado
-- [x] Integrado en AdminProducts
-- [x] Integrado en AdminCategories
-- [x] Preview de imagen antes de subir
-- [x] Validacion de tipo y tamaño
+### 1. Clonar el repositorio
 
-### Dia 25: Mejoras UI y componentes reutilizables
+```bash
+git clone https://github.com/Jorge5115/ecommerce-frontend.git
+cd ecommerce-frontend
+```
 
-- [x] Pagina 404 creada
-- [x] Componente Loading reutilizable
-- [x] Componente EmptyState reutilizable
-- [x] Footer Stack Shop con logo y redes sociales
-- [x] Footer con tecnologias del proyecto
-- [x] Navbar y titulo actualizados a Stack Shop
-- [x] Carrito badge carga automaticamente
+### 2. Instalar dependencias
 
-### Dia 26: Landing Page y mejoras visuales
+```bash
+npm install
+```
 
-- [x] HomePage completa con HeroSection, Stats, Categories y Featured
-- [x] Navbar rediseñada: links centrados, hover verde, flecha activa
-- [x] Iconos personalizados PNG en navbar y landing
-- [x] ProductCard y Wishlist con altura fija uniforme
-- [x] ProductGalleryPicker y CategoryGalleryPicker separados
-- [x] AdminCategories con edicion completa
-- [x] Footer profesional con tecnologias Stack
+### 3. Configurar la URL del backend
 
-### Dia 27: Mejoras visuales y UX
+En `src/api/axiosConfig.js` (o equivalente), asegúrate de que apunta al backend:
 
-- [x] AdminLayout con nuevo diseño sidebar
-- [x] Iconos personalizados en admin panel
-- [x] Dashboard con cards visuales mejoradas
-- [x] Traduccion de estados a español
-- [x] Filtro de categorias desde landing funcional
-- [x] Transiciones optimizadas en ProductsPage
-- [x] ProductGalleryPicker y CategoryGalleryPicker separados
-- [x] Mejoras visuales generales en admin
+```js
+const API_BASE_URL = 'http://localhost:8080/api';
+```
+
+### 4. Arrancar la aplicación
+
+```bash
+npm start
+```
+
+La app estará disponible en `http://localhost:3000`
+
+---
+
+## Estructura del proyecto
+
+```
+src/
+├── api/           # Llamadas a la API (axios)
+├── components/    # Componentes reutilizables (Navbar, Footer, Loading...)
+├── pages/         # Páginas de la aplicación
+│   ├── auth/      # Login, Register
+│   ├── products/  # Catálogo y detalle
+│   ├── cart/      # Carrito
+│   ├── checkout/  # Checkout y pedidos
+│   ├── profile/   # Perfil y wishlist
+│   └── admin/     # Panel de administración
+├── store/         # Redux store y slices
+└── App.js         # Rutas y configuración
+```
+
+---
+
+## Autor
+
+**Jorge Casanova Sánchez**  
+[LinkedIn](https://www.linkedin.com/in/jorge-casanova-sánchez/) · [GitHub](https://github.com/Jorge5115)
